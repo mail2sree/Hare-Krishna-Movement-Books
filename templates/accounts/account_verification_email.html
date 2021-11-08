@@ -1,0 +1,10 @@
+{% autoescape off %}
+Hare Krishna {{user.first_name}}
+
+Click on below link to confirm you registeration.
+
+https://{{domain}}{% url 'activate' uidb64=uid token=token %}
+
+If you think its not you, ignore this email.
+
+{% endautoescape %}

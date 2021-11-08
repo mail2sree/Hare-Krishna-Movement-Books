@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+	<a class="btn btn-outline-danger" href="/store/#1" role="button">Buy Books Now</a>
+	<a class="btn btn-outline-success" href="/accounts/dashboard/" role="button">Dashboard</a>
+	<br>
+	<br>
+	<div class="intro-banner-wrap">
+		<img src="{% static 'Srila-Prabhupada-Disappearance-day.001.jpeg' %}" class="img-fluid rounded" width="100%">
+	</div>
+</div>
+<br>
+<br>
+<section>
+<div class="container">
+<header class="section heading">
+	<a href="/store" class="btn btn-outline-primary float-right">See all</a>
+	<h3 class="section-title" id="1">Deals Of the day</h3>
+	<br>
+	<br>
+</header>
+<div class="row">
+	{% for deal in dealoftheday %}
+	<div class="col-md-3">
+		<div href="{{deal.get_url}}" class="card card-product-grid">
+			<a href="{{deal.get_url}}" class="img-wrap"> <img src="{{deal.images.url}}"> </a>
+			<figcaption class="info-wrap">
+				<a href="{{deal.get_url}}" class="title">{{deal.product_name}}</a>
+				<div class="price mt-1">&#8377;{{deal.price}}</div> <!-- price-wrap.// -->
+			</figcaption>
+		</div>
+	</div> <!-- col.// -->
+	{% endfor %}
+
+</div> <!-- row.// -->
+<br>
+<br>
+<header class="section heading">
+	<a href="/store" class="btn btn-outline-primary float-right">See all</a>
+	<h3 class="section-title" id="2">Top Selling Books</h3>
+	<br>
+	<br>
+</header>
+<div class="row">
+	{% for product in products %}
+	<div class="col-md-3">
+		<div href="{{product.get_url}}" class="card card-product-grid">
+			<a href="{{product.get_url}}" class="img-wrap"> <img src="{{product.images.url}}"> </a>
+			<figcaption class="info-wrap">
+				<a href="{{product.get_url}}" class="title">{{product.product_name}}</a>
+				<div class="price mt-1">&#8377;{{product.price}}</div> <!-- price-wrap.// -->
+			</figcaption>
+		</div>
+	</div> <!-- col.// -->
+	{% endfor %}
+
+</div> <!-- row.// -->
+<header class="section heading">
+	<a href="/store" class="btn btn-outline-primary float-right">See all</a>
+	<h3 class="section-title" id="3">Brass Deties</h3>
+	<br>
+	<br>
+</header>
+<div class="row">
+	{% for deties in brassdeties %}
+	<div class="col-md-3">
+		<div href="{{deties.get_url}}" class="card card-product-grid">
+			<a href="{{deties.get_url}}" class="img-wrap"> <img src="{{deties.images.url}}"> </a>
+			<figcaption class="info-wrap">
+				<a href="{{deties.get_url}}" class="title">{{deties.product_name}}</a>
+				<div class="price mt-1">&#8377;{{deties.price}}</div> <!-- price-wrap.// -->
+			</figcaption>
+		</div>
+	</div> <!-- col.// -->
+	{% endfor %}
+
+</div> <!-- row.// -->
+<br>
+<br>
+</div><!-- container // -->
+</div>
+</section>
+<!-- ========================= SECTION  END// ========================= -->
+
+
+<!-- ========================= SECTION  ========================= -->
+
+    <!-- ========================= SECTION  END// ======================= -->
+    
+{% endblock %}
+
+</body>
+</html>
